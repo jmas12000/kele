@@ -1,6 +1,7 @@
 require "kele/version"
 require "httparty"
 require "json"
+require "kele/errors"
 
 class Kele
   include HTTParty
@@ -8,6 +9,6 @@ class Kele
   
   def initialize (email, password)
     @authorization_token = self.class.post("/sessions", body: {"email": email, "password": password})["auth_token"]
-    raise InvalidCredentialsError.new() unless @authorization_token
+    raise InvalidCredentialsError.new() unless @authorization_token 
   end
 end

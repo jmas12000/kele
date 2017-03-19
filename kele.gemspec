@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
    s.description   = 'A Ruby Gem to access the Bloc API for user, checkpoint, message, and mentor availability'
    s.authors       = ['Jeff Moore']
    s.email         = 'jmas1_2000@yahoo.com'
-   s.files         = `git ls-files`.split("\n")
+   s.files         = `git ls-files`.split($/)
    s.require_paths = ['lib']
    s.homepage      =
      'http://rubygems.org/gems/kele'
