@@ -14,10 +14,10 @@ Gem::Specification.new do |s|
    s.homepage      =
      'http://rubygems.org/gems/kele'
    s.license       = 'MIT'
-   s.add_runtime_dependency 'httparty', '~> 0.13'
-   s.add_runtime_dependency 'json', '~> 1.8'
+   s.add_runtime_dependency 'httparty', '~> 0.14'
+   s.add_runtime_dependency 'json'
    s.add_development_dependency 'bundler', '~> 1.14'
    s.add_development_dependency 'rake', '~> 10.0'
-   s.add_development_dependency 'rspec', '~> 3.0'
-   s.add_development_dependency 'nyan-cat-formatter', '~> 1.8'
+   s.add_development_dependency 'rspec'
+   s.add_development_dependency 'nyan-cat-formatter'
 end

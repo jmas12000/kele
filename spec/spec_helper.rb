@@ -1,6 +1,6 @@
 require "bundler/setup"
-require File.expand_path('../../lib/kele.rb', __FILE__)
 require "kele"
+require File.expand_path('../../lib/kele.rb', __FILE__)
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
