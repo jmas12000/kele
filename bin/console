@@ -12,3 +12,6 @@ require "kele"
 
 require "irb"
 IRB.start(__FILE__)
+
+require "awesome_print"
+AwesomePrint.irb!
