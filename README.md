@@ -33,15 +33,39 @@ $ irb
 Retrieve the current user:
 
 ```ruby
-
+$ irb
+>> require 'kele'
+=> true
+>> kele_client = Kele.new("jane@gmail.com", "abc123")
+>> kele_client.get_me
 ```
 Retrieve a list of their mentor's availability:
 ```ruby
-
+$ irb
+>> require 'kele'
+=> true
+>> kele_client = Kele.new("jane@gmail.com", "abc123")
+>> mentor_id = 99
+>> kele_client.get_mentor_availability(mentor_id)
 ```
 Retrieve Bloc curriculum roadmaps and checkpoints:
+1.  roadmaps:
 ```ruby
-
+$ irb
+>> require 'kele'
+=> true
+>> kele_client = Kele.new("jane@gmail.com", "abc123")
+>> roadmap_id = 99
+>> kele_client.get_roadmap(roadmap_id)
+```
+2. checkpoints:
+```ruby
+$ irb
+>> require 'kele'
+=> true
+>> kele_client = Kele.new("jane@gmail.com", "abc123")
+>> checkpoint_id = 99
+>> kele_client.get_checkpoint(checkpoint_id)
 ```
 Retrieve a list of their messages, respond to an existing message, and create a new message thread:
 ```ruby
