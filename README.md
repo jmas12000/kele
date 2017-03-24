@@ -45,12 +45,19 @@ $ irb
 >> require 'kele'
 => true
 >> kele_client = Kele.new("jane@gmail.com", "abc123")
->> mentor_id = 99
->> kele_client.get_mentor_availability(mentor_id)
+>> kele_client.get_mentor_availability
 ```
 Retrieve Bloc curriculum roadmaps and checkpoints:
 1.  roadmaps:
 ```ruby
+         # Retrieve current roadmap:
+$ irb
+>> require 'kele'
+=> true
+>> kele_client = Kele.new("jane@gmail.com", "abc123")
+>> kele_client.get_roadmap
+
+         # Retrieve specific roadmap:
 $ irb
 >> require 'kele'
 => true
@@ -68,9 +75,46 @@ $ irb
 >> kele_client.get_checkpoint(checkpoint_id)
 ```
 Retrieve a list of their messages, respond to an existing message, and create a new message thread:
+1. Retrieve messages: 
 ```ruby
+        # Retrieve all messages(broken down in paginated groups of 10):
+$ irb
+>> require 'kele'
+=> true
+>> kele_client = Kele.new("jane@gmail.com", "abc123")
+>> kele_client.get_messages
 
+        # Retrieve a single page of messages:
+$ irb
+>> require 'kele'
+=> true
+>> kele_client = Kele.new("jane@gmail.com", "abc123")
+>> page_num = 1
+>> kele_client.get_messages(page_num)
 ```
+2. Create a new message and thread:
+```ruby
+$ irb
+>> require 'kele'
+=> true
+>> kele_client = Kele.new("jane@gmail.com", "abc123")
+>> subject = "Example Subject"
+>> stripped_text = "Example message body"
+>> kele_client.create_messages(subject, stripped_text)
+```
+3. Respond to an existing message thread:
+```ruby
+$ irb
+>> require 'kele'
+=> true
+>> kele_client = Kele.new("jane@gmail.com", "abc123")
+>> subject = "Example Subject"
+>> stripped_text = "Example message body"
+>> response_token= "abc123"
+>> kele_client.create_messages(subject, stripped_text, response_token)
+```
+
+
 
 ## Development
 
