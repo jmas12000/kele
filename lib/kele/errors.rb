@@ -1,13 +1,20 @@
 class InvalidCredentialsError < StandardError
   
-  def initialize(msg="invalid email or password")
+  def initialize(msg="Invalid email or password")
     super(msg)
   end
 end
 
 class InvalidMessageError < StandardError
   
-  def initialize(msg="invalid credentials or message")
+  def initialize(msg="Invalid message submission")
+    super(msg)
+  end
+end
+
+class InvalidCheckpointError < StandardError
+  
+  def initialize(msg="Invalid checkpoint submission")
     super(msg)
   end
 end

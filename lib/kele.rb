@@ -10,10 +10,16 @@ class Kele
   include Roadmap
   
   base_uri "https://www.bloc.io/api/v1"
+ 
   
   def initialize (email, password)
     @auth_token = self.class.post("/sessions", body: {'email': email, 'password': password})['auth_token']
     raise InvalidCredentialsError.new() unless @auth_token 
+  end
+  
+  def check
+    response= self.class.get("/")
+    puts response.body
   end
   
   def get_me
@@ -54,5 +60,20 @@ class Kele
     options[:body][:token] = response_token if response_token  
     response = self.class.post("/messages", options)
     raise InvalidMessageError.new() unless response.code == 200
+  end
+  
+  def create_submission(checkpoint_id, assignment_branch = nil, assignment_commit_link = nil, comment = nil)
+    options = {
+      headers: {'authorization' => @auth_token},
+      body: {
+        checkpoint_id: checkpoint_id,
+        enrollment_id: get_me["current_enrollment"]["id"],
+      }
+    }
+    options[:body][:assignment_branch] = assignment_branch if assignment_branch
+    options[:body][:assignment_commit_link] = assignment_commit_link if assignment_commit_link
+    options[:body][:comment] = comment if comment
+    response = self.class.post("/checkpoint_submissions", options)
+    raise InvalidCheckpointError() unless response.code == 200   
   end
 end

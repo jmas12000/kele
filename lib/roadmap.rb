@@ -13,3 +13,7 @@ module Roadmap
     @checkpoints = JSON.parse(response.body)
   end
 end
+
+
+
+
